@@ -1,0 +1,17 @@
+/* Sidebar.css */
+.sidebar-item {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #e0e0e0;
+}
+
+.folder-icon {
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,32 @@
+/* BookmarkList.css */
+.bookmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fafafa;
+  text-decoration: none;
+  color: inherit; /* Keeps text color consistent */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.bookmark-item:hover {
+  background-color: #e0e0e0;
+}
+
+.bookmark-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.bookmark-title {
+  flex: 1; /* Ensures the text fills remaining space */
+}

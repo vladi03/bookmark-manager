@@ -1,0 +1,139 @@
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* Header adjustments for mobile */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 1rem;
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+}
+
+.file-upload-label,
+.file-upload-container button {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  border: none;
+  color: white;
+}
+
+.file-upload-label:hover,
+.file-upload-container button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.file-upload {
+  display: none;
+}
+
+
+
+/* Ensure the entire app uses flexbox */
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 60px);
+}
+
+/* Sidebar (Default - Desktop) */
+.sidebar {
+  width: 250px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar (Mobile) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: -260px; /* Hidden by default */
+    height: calc(100vh - 60px);
+    width: 250px;
+    /* The key part: higher z-index to be on top */
+    z-index: 2000;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+}
+
+
+/* Main content area should take the remaining space */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* On mobile, the main content should not be pushed down */
+@media (max-width: 768px) {
+  .main-content {
+    width: 100%;
+    margin-left: 0; /* Prevent content from shifting */
+  }
+
+  /* When sidebar is open, prevent content from being pushed */
+  .sidebar-open {
+    margin-left: 0;
+  }
+}
+
+/* For smaller devices, e.g., max-width: 576px */
+@media (max-width: 576px) {
+  .app-header h1 {
+    font-size: 1.25rem;        /* Smaller font */
+    white-space: nowrap;       /* Don’t wrap text */
+    overflow: hidden;          /* Hide overflow */
+    text-overflow: ellipsis;   /* Show ... if text is too long */
+    max-width: 50%;            /* Constrain how wide the text can be */
+  }
+
+  /* Optionally reduce or hide the icon text in the hamburger or reload button */
+  .toggle-sidebar {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  /* If the 'Reload Bookmarks' text is too wide, consider making it a shorter label */
+  .file-upload-label {
+    /* For instance: */
+    max-width: 8rem;           /* or rename to just "Reload" on mobile */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
